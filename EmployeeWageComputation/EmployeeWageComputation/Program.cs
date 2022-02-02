@@ -8,6 +8,7 @@ namespace EmployeeWageComputation
 {
     public class Program
     {
+        // drive method
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee wage Computation problem \n");
