@@ -17,23 +17,22 @@ namespace EmployeeWageComputation
         {
             Random random = new Random();
             int empcheck = random.Next(0, 3);
-
-            if (empcheck == PART_TIME_HOUR)
+            switch (empcheck)
             {
-                Console.WriteLine("Part Time Employee is");
-                wagePerDay = WAGE_PER_HOUR * PART_TIME_HOUR;
+                case FULL_TIME:
+                    Console.WriteLine("Employee is present");
+                    wagePerDay = WAGE_PER_HOUR * FULLDAYS_HOUR;
+                    break;
 
-            }
-            if (empcheck == FULLDAYS_HOUR)
-            {
-                Console.WriteLine("Employee is present");
-                wagePerDay = WAGE_PER_HOUR * FULLDAYS_HOUR;
+                case PART_TIME:
+                    Console.WriteLine("Part Time Employee is");
+                    wagePerDay = WAGE_PER_HOUR * PART_TIME_HOUR;
+                    break;
 
-            }
+                default:
+                    wagePerDay = 0;
+                    break;
 
-            if (empcheck == EMP_ABSENT)
-            {
-                wagePerDay = 0;
             }
             Console.WriteLine("Employee wage: " + wagePerDay);
         }
