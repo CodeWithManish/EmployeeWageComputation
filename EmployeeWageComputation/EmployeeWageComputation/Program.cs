@@ -11,7 +11,8 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee wage Computation problem \n");
-
+            WageComputation wageComputation = new WageComputation();
+            wageComputation.EmpAttendence();
             
 
         }
