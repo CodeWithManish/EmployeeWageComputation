@@ -12,13 +12,13 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee wage Computation problem \n");
-            EmployeeWage wageComputation = new EmployeeWage();
-            wageComputation.EmpAttendence("Hero", 20, 2, 10);
-            wageComputation = new EmployeeWage();
-            wageComputation.EmpAttendence("Maruti", 10, 5, 30);
-            wageComputation = new EmployeeWage();
-            wageComputation.EmpAttendence("Relience", 10, 3, 4);    
-            Console.ReadLine();
+            EmployeeWage dMart = new EmployeeWage("DMart",20,2,10);
+            EmployeeWage relience = new EmployeeWage("Relience",10,4,20);
+            dMart.EmpAttendence();
+            Console.WriteLine(dMart.ToString());
+            relience.EmpAttendence();
+            Console.WriteLine(relience.ToString());
+              
             
 
         }

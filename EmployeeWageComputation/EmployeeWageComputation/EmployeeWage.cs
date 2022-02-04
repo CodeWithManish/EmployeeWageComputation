@@ -8,11 +8,25 @@ namespace EmployeeWageComputation
 {
     public class EmployeeWage
     {
-
+        
         const int IS_PART_TIME = 1, IS_FULL_TIME = 2;
 
 
-        public void EmpAttendence(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        private string company;
+        private int empRatePerHour;
+        private int numOfWorkingDays;
+        private int maxHoursPerMonth;
+        private int totalEmpWage;
+
+        public EmployeeWage(string company, int empRatePerHour, int numofWorkingDays, int maxHoursPerMonth)
+        {
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;
+            this.numOfWorkingDays = numofWorkingDays;
+            this.maxHoursPerMonth = maxHoursPerMonth;
+        }
+
+        public void EmpAttendence()
         {
             int empHours = 0;
             int totalEmpHours = 0;
@@ -49,6 +63,12 @@ namespace EmployeeWageComputation
             int totalEmpWage = totalEmpHours * empRatePerHour;
             Console.WriteLine("Total Employee Wage for Company:" + company + " is: " + totalEmpWage);
             
+        }
+        public string tostring()
+        {
+            return "Total Emp Wage for company: " + this.company + "is:" + this.totalEmpWage;
+
+
         }
     }
 }
