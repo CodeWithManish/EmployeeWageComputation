@@ -8,39 +8,47 @@ namespace EmployeeWageComputation
 {
     public class EmployeeWage
     {
-       // variable
-        const int EMP_PRESENT = 1, EMP_ABSENT = 0, PART_TIME = 0, FULL_TIME = 1, WAGE_PER_HOUR = 20,
-              FULLDAYS_HOUR = 8, PART_TIME_HOUR = 4, WORKING_DAYS = 100;
-        int maxWagePerMonth = 0;
 
-        //method
-        public void EmpAttendence()
+        const int IS_PART_TIME = 1, IS_FULL_TIME = 2;
+
+
+        public void EmpAttendence(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
+            int empHours = 0;
+            int totalEmpHours = 0;
+            int totalWorkingDays = 0;
+
             Random random = new Random();
-            int empcheck = random.Next(0, 4);
-            
+            int empcheck = random.Next(0, 3);
+
             //loop
 
-            for (int i = 0; i < WORKING_DAYS; i++)
+            while (totalWorkingDays < numOfWorkingDays && totalEmpHours <= maxHoursPerMonth)
             {
+                totalWorkingDays++;
+
                 //Using Switch case
                 switch (empcheck)
                 {
-                    case FULL_TIME:
-                        maxWagePerMonth += WAGE_PER_HOUR * FULLDAYS_HOUR;
+                    case IS_FULL_TIME:
+                        empHours = 8;
                         break;
 
-                    case PART_TIME:
-                        maxWagePerMonth += WAGE_PER_HOUR * PART_TIME_HOUR;
+                    case IS_PART_TIME:
+                        empHours = 4;
                         break;
 
                     default:
-                        maxWagePerMonth = 0;
+                        empHours = 0;
                         break;
 
                 }
+                totalEmpHours += empHours;
+                Console.WriteLine("Days: " + totalWorkingDays + " Employee Hours: " + empHours);
             }
-            Console.WriteLine("Total Employee Wage :" + maxWagePerMonth);
+            int totalEmpWage = totalEmpHours * empRatePerHour;
+            Console.WriteLine("Total Employee Wage for Company:" + company + " is: " + totalEmpWage);
+            
         }
     }
 }
